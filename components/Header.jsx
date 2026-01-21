@@ -181,7 +181,7 @@ export default function Header() {
                   </h3>
                   <div className="space-y-3">
                     <a
-                      href="mailto:dev.musabhassan@gmail.com"
+                      href="mailto:info@techmusab.in"
                       className="flex items-center gap-3 text-gray-600 hover:text-indigo-600"
                     >
                       <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
@@ -189,9 +189,7 @@ export default function Header() {
                       </div>
                       <div>
                         <div className="text-sm">Email</div>
-                        <div className="font-medium">
-                          dev.musabhassan@gmail.com
-                        </div>
+                        <div className="font-medium">info@techmusab.in</div>
                       </div>
                     </a>
                     <a

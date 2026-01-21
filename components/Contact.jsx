@@ -227,7 +227,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="mailto:dev.musabhassan@gmail.com"
+                href="mailto:info@techmusab.in"
                 className="flex items-center gap-4 p-4 rounded-xl bg-linear-to-r from-blue-500/20 to-indigo-500/20 hover:from-blue-500/30 hover:to-indigo-500/30 transition-all group"
               >
                 <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
@@ -235,9 +235,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold">Email</div>
-                  <div className="text-gray-300 text-sm">
-                    dev.musabhassan@gmail.com
-                  </div>
+                  <div className="text-gray-300 text-sm">info@techmusab.in</div>
                 </div>
               </a>
 

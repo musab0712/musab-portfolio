@@ -1,11 +1,9 @@
 // app/layout.jsx
 import { Inter, Poppins } from "next/font/google";
-import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
 import SeoSchema from "@/components/SeoSchema";
-
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({

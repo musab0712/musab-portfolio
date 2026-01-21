@@ -181,7 +181,7 @@ export default function Header() {
                   </h3>
                   <div className="space-y-3">
                     <a
-                      href="mailto:musab@example.com"
+                      href="mailto:dev.musabhassan@gmail.com"
                       className="flex items-center gap-3 text-gray-600 hover:text-indigo-600"
                     >
                       <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
@@ -189,11 +189,13 @@ export default function Header() {
                       </div>
                       <div>
                         <div className="text-sm">Email</div>
-                        <div className="font-medium">musab@example.com</div>
+                        <div className="font-medium">
+                          dev.musabhassan@gmail.com
+                        </div>
                       </div>
                     </a>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+918235822089"
                       className="flex items-center gap-3 text-gray-600 hover:text-indigo-600"
                     >
                       <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
@@ -201,7 +203,7 @@ export default function Header() {
                       </div>
                       <div>
                         <div className="text-sm">Call Now</div>
-                        <div className="font-medium">+1 (234) 567-890</div>
+                        <div className="font-medium">+91 8235822089</div>
                       </div>
                     </a>
                   </div>
@@ -220,7 +222,7 @@ export default function Header() {
               </nav>
 
               {/* Footer in Mobile Menu */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 border-t">
+              <div className="absolute bottom-0 left-0 right-0 p-6 ">
                 <div className="text-center text-sm text-gray-500">
                   © {new Date().getFullYear()} Musab Hassan. All rights
                   reserved.

@@ -120,7 +120,7 @@ export default function WhyChooseMe() {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { value: "50+", label: "Happy Clients" },
+            { value: "25+", label: "Happy Clients" },
             { value: "100%", label: "Client Satisfaction" },
             { value: "2+", label: "Years Experience" },
             { value: "20+", label: "Projects Delivered" },

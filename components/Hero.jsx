@@ -89,7 +89,7 @@ export default function Hero() {
                   <div className="flex text-yellow-400">{"★".repeat(5)}</div>
                   <span className="font-semibold">5.0/5.0</span>
                 </div>
-                <p className="text-gray-600">Rated by 50+ Clients</p>
+                <p className="text-gray-600">Rated by 25+ Clients</p>
               </div>
             </div>
           </motion.div>
@@ -119,7 +119,7 @@ export default function Hero() {
                   <div className="text-gray-600">Years Experience</div>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-linear-to-br from-green-50 to-emerald-50">
-                  <div className="text-3xl font-bold text-green-600">50+</div>
+                  <div className="text-3xl font-bold text-green-600">25+</div>
                   <div className="text-gray-600">Happy Clients</div>
                 </div>
               </div>

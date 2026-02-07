@@ -5,6 +5,9 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import WhyChooseMe from "@/components/WhyChooseMe";
 import Contact from "@/components/Contact";
+import Education from "@/components/Education";
+import AboutMe from "@/components/AboutMe";
+import About from "@/components/About";
 
 export default function Home() {
   return (
@@ -21,16 +24,25 @@ export default function Home() {
         <Projects />
       </section>
 
-      <section id="services">
-        <Services />
-      </section>
+      {/* <section id="about">
+        <AboutMe />
+      </section> */}
 
       <section id="about">
-        <WhyChooseMe />
+        <About />
+        {/* <WhyChooseMe /> */}
+      </section>
+
+      <section id="education">
+        <Education />
       </section>
 
       <section id="contact">
         <Contact />
+      </section>
+
+      <section id="services">
+        <Services />
       </section>
     </>
   );

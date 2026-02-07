@@ -51,7 +51,7 @@ const benefits = [
 
 export default function WhyChooseMe() {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section className="py-20 bg-white">
       <div className="section-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

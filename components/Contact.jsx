@@ -18,9 +18,43 @@ export default function Contact() {
     message: "",
   });
 
+  const [isSubmitted, setIsSubmitted] = useState(false); // success state
+  const [loading, setLoading] = useState(false);
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // setIsSubmitting(true);
+
+  //   try {
+  //     const res = await fetch("/api/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     if (!res.ok) throw new Error("Failed");
+
+  //     // setIsSubmitted(true);
+
+  //     setTimeout(() => {
+  //       setFormData({
+  //         name: "",
+  //         email: "",
+  //         mobile: "",
+  //         subject: "",
+  //         message: "",
+  //       });
+  //     }, 3000);
+  //   } catch (error) {
+  //     alert("Something went wrong. Please try again.");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setIsSubmitting(true);
+    setLoading(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -33,19 +67,24 @@ export default function Contact() {
 
       if (!res.ok) throw new Error("Failed");
 
-      // setIsSubmitted(true);
+      setIsSubmitted(true); // show success message
 
+      setFormData({
+        name: "",
+        email: "",
+        mobile: "",
+        subject: "",
+        message: "",
+      });
+
+      // 5 sec baad form wapas
       setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          mobile: "",
-          subject: "",
-          message: "",
-        });
-      }, 3000);
+        setIsSubmitted(false);
+      }, 5000);
     } catch (error) {
       alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -86,95 +125,125 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <div className="glass-card rounded-2xl p-8 bg-white/10 backdrop-blur-sm">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-gray-200 mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                    placeholder="Full Name"
-                    required
-                  />
+              {isSubmitted ? (
+                // ✅ Success Message UI
+                <div className="text-center py-16">
+                  <h3 className="text-3xl font-bold text-green-400 mb-4">
+                    🎉 Message Sent Successfully!
+                  </h3>
+                  <p className="text-gray-600">
+                    Thanks for contacting me. I will reply soon 🚀
+                  </p>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-200 mb-2">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      placeholder="Full Name"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-gray-200 mb-2">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                    placeholder="Your Email Address"
-                    required
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="email" className="block text-gray-200 mb-2">
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      placeholder="Your Email Address"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="mobile" className="block text-gray-200 mb-2">
-                    Your Mobile
-                  </label>
-                  <input
-                    type="tel"
-                    id="mobile"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                    placeholder="Your Mobile Number"
-                    required
-                  />
-                </div>
+                  <div>
+                    <label
+                      htmlFor="mobile"
+                      className="block text-gray-200 mb-2"
+                    >
+                      Your Mobile
+                    </label>
+                    <input
+                      type="tel"
+                      id="mobile"
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      placeholder="Your Mobile Number"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-gray-200 mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="subject"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                    placeholder="Project Inquiry"
-                    required
-                  />
-                </div>
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-gray-200 mb-2"
+                    >
+                      Subject
+                    </label>
+                    <input
+                      type="subject"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      placeholder="Project Inquiry"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-gray-200 mb-2">
-                    Project Details
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
-                    placeholder="Tell me about your project, timeline, and budget..."
-                    required
-                  ></textarea>
-                </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-gray-200 mb-2"
+                    >
+                      Project Details
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
+                      placeholder="Tell me about your project, timeline, and budget..."
+                      required
+                    ></textarea>
+                  </div>
 
-                <button
+                  {/* <button
                   type="submit"
                   className="w-full bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <FaPaperPlane />
                   Send Message
-                </button>
-              </form>
+                </button> */}
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <FaPaperPlane />
+                    {loading ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              )}
             </div>
           </motion.div>
 

@@ -50,18 +50,24 @@ export default function Education() {
       id="education"
       className="py-20 bg-linear-to-b from-white to-gray-50"
     >
-      <div className="section-padding">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          {/* <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-gray-900">Educational</span>
             <span className="text-indigo-600 ml-2">Background</span>
+          </h2> */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+            <span className="bg-linear-to-r from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Educational Background
+            </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+
+          <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Academic journey that built the foundation for my technical
             expertise
           </p>

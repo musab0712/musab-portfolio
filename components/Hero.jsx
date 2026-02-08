@@ -37,6 +37,12 @@ export default function Hero() {
                   2000,
                   "Web Application Expert",
                   2000,
+                  "Next.js & SaaS Specialist",
+                  2000,
+                  "AI + Web App Builder",
+                  2000,
+                  "High Converting Websites",
+                  2000,
                   "Business Growth Partner",
                   2000,
                 ]}
@@ -102,7 +108,7 @@ export default function Hero() {
           >
             <div className="relative glass-card rounded-2xl p-8 shadow-2xl">
               <div className="absolute -top-3 -right-3 bg-linear-to-r from-indigo-600 to-blue-600 text-white px-4 py-2 rounded-lg font-semibold">
-                Available for Hire
+                Open to Work
               </div>
 
               <div className="grid grid-cols-2 gap-6 mb-8">

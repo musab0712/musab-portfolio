@@ -102,7 +102,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section id="about" className="py-14 sm:py-20 relative overflow-hidden">
       {/* Simple gradient background instead of complex SVG */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 via-white to-blue-50/20"></div>
@@ -141,7 +141,7 @@ export default function About() {
         <div className="w-full h-full border-2 border-blue-300/30 rounded-full"></div>
       </div>
 
-      <div className="section-padding relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Animated Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -149,12 +149,14 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16 relative"
         >
-          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent rounded-full"></div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 relative inline-block">
-            <span className="text-gray-900">About</span>
-            <span className="text-indigo-600 ml-2">Me</span>
+          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-linear-to-r from-transparent via-indigo-500 to-transparent rounded-full"></div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight relative inline-block">
+            <span className="bg-linear-to-r from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              About Me
+            </span>
+
             <motion.span
-              className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"
+              className="absolute -bottom-2 left-0 w-full h-1 bg-linear-to-r from-indigo-500 to-blue-500 rounded-full"
               animate={{
                 scaleX: [0, 1, 0],
                 opacity: [0, 1, 0],
@@ -166,7 +168,7 @@ export default function About() {
               }}
             />
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto relative">
+          <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed relative">
             Passionate developer with 2+ years of experience building
             production-ready web applications
             <motion.span
@@ -184,7 +186,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Left Column - Personal Info & Contact */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -194,11 +196,11 @@ export default function About() {
           >
             {/* Premium Profile Card */}
             <motion.div
-              whileHover={{ y: -5 }}
-              className="glass-premium rounded-3xl overflow-hidden shadow-2xl border border-gray-100/50"
+              whileHover={{ y: -8, scale: 1.01 }}
+              className="group rounded-3xl overflow-hidden bg-white shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500"
             >
               {/* Profile Header with Gradient */}
-              <div className="relative h-32 bg-gradient-to-r from-indigo-600 to-blue-600">
+              <div className="relative h-28 sm:h-32 bg-linear-to-r from-indigo-600 to-blue-600">
                 {/* Simple pattern overlay */}
                 <div
                   className="absolute inset-0 opacity-20"
@@ -210,15 +212,15 @@ export default function About() {
 
                 {/* Profile Image Placeholder */}
                 <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2">
-                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-white to-gray-100 p-1 shadow-xl">
-                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-linear-to-br from-white to-gray-100 p-1 shadow-xl">
+                    <div className="w-full h-full rounded-xl bg-linear-to-br from-indigo-500 to-blue-500 flex items-center justify-center">
                       <FaUser className="text-white text-3xl" />
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-16 px-8 pb-8">
+              <div className="pt-16 px-5 sm:px-8 pb-6 sm:pb-8">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-gray-900">
                     Musab Hassan
@@ -229,7 +231,7 @@ export default function About() {
                   </div>
                 </div>
 
-                <p className="text-gray-600  leading-relaxed mb-8 text-justify">
+                <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base text-justify">
                   I am a passionate Full Stack Developer specializing in the
                   MERN stack with 2+ years of professional experience. I build
                   scalable, high-performance web applications, CMS platforms,
@@ -241,7 +243,7 @@ export default function About() {
                 </p>
 
                 {/* Quick Stats */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
                   {[
                     { value: "2+", label: "Years", color: "text-indigo-600" },
                     { value: "20+", label: "Projects", color: "text-blue-600" },
@@ -251,8 +253,13 @@ export default function About() {
                       color: "text-green-600",
                     },
                   ].map((stat, i) => (
-                    <div key={i} className="text-center">
-                      <div className={`text-2xl font-bold ${stat.color}`}>
+                    <div
+                      key={i}
+                      className="bg-white/60 backdrop-blur-md rounded-xl py-3 shadow-sm border border-white/40 text-center"
+                    >
+                      <div
+                        className={`text-lg sm:text-2xl font-bold ${stat.color}`}
+                      >
                         {stat.value}
                       </div>
                       <div className="text-sm text-gray-500">{stat.label}</div>
@@ -262,7 +269,7 @@ export default function About() {
 
                 <button
                   onClick={handleDownloadResume}
-                  className="w-full btn-primary flex items-center justify-center gap-3 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                  className="w-full bg-linear-to-r from-indigo-600 to-blue-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   <FaDownload />
                   Download Resume (PDF)
@@ -282,7 +289,7 @@ export default function About() {
 
             {/* Contact Card with Animation */}
             <motion.div
-              whileHover={{ y: -3 }}
+              whileHover={{ y: -8, scale: 1.01 }}
               className="glass-premium rounded-3xl p-8 shadow-xl border border-gray-100/50"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
@@ -403,10 +410,10 @@ export default function About() {
             {/* Experience Timeline */}
             <motion.div
               whileHover={{ y: -3 }}
-              className="glass-premium rounded-3xl p-8 shadow-xl border border-gray-100/50"
+              className="rounded-3xl p-5 sm:p-8 bg-white shadow-lg border border-gray-100"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white">
                   <FaBriefcase />
                 </div>
                 Professional Journey
@@ -414,7 +421,7 @@ export default function About() {
 
               <div className="space-y-8 relative">
                 {/* Timeline line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-200 via-blue-200 to-cyan-200"></div>
+                <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-indigo-200 via-blue-200 to-cyan-200"></div>
 
                 {experience.map((exp, index) => (
                   <motion.div
@@ -423,14 +430,14 @@ export default function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="relative pl-12"
+                    className="relative pl-8 sm:pl-12"
                   >
                     {/* Timeline node */}
                     <div
-                      className={`absolute left-6 top-1 w-5 h-5 rounded-full bg-gradient-to-br ${exp.color} border-2 border-white shadow-lg`}
+                      className={`absolute left-2 sm:left-6 top-1 w-5 h-5 rounded-full bg-linear-to-br ${exp.color} border-2 border-white shadow-lg`}
                     ></div>
 
-                    <div className="space-y-3 p-4 rounded-xl bg-gradient-to-r from-gray-50/50 to-gray-100/30 hover:from-indigo-50/50 hover:to-blue-50/30 transition-all">
+                    <div className="space-y-3 p-4 rounded-2xl bg-white/70 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-lg transition-all">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-3">
                           <div

@@ -102,7 +102,7 @@ export default function Footer() {
       {/* Mobile Bottom Navigation */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] z-30">
         <div className="flex items-center justify-around py-3">
-          {["Home", "Projects", "Services", "Contact"].map((item, index) => (
+          {["Home", "Projects", "About", "Contact"].map((item, index) => (
             <a
               key={index}
               href={`#${item.toLowerCase()}`}
